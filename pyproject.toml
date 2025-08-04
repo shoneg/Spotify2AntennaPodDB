@@ -1,0 +1,64 @@
+# build pip package
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = 'Spotify2AntennaPodDB'
+version = '0.0.0'
+authors = [{ name = 'Simon Hüsch' }]
+description = 'With this program, you can migrate your Spotify podcast timeline into AntennaPods database. So you can switch your podcast player without losing you history.'
+readme = 'README.md'
+requires-python = '>=3.12'
+license = { file = "LICENSE" }
+classifiers = [
+    'Development Status :: 1 - Planning',
+    'Environment :: Console',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: MIT License',
+    'Natural Language :: English',
+    'Operating System :: POSIX :: Linux',
+    'Programming Language :: Python :: 3',
+    'Topic :: File Formats :: JSON',
+    'Topic :: Multimedia :: Sound/Audio :: Analysis',
+    'Topic :: Utilities',
+    'Typing :: Typed',
+]
+dependencies = []
+
+[project.urls]
+
+# autopep8
+[tool.autopep8]
+max_line_length = 120
+
+# pylint
+[tool.pylint]
+disable = 'global-statement'
+
+[tool.pylint.main]
+jobs = 2
+
+[tool.pylint.design]
+max-args = 10
+max-attributes = 15
+max-branches = 20
+max-locals = 25
+max-public-methods = 40
+max-returns = 10
+max-statements = 75
+
+[tool.pylint.format]
+max-line-length = 150
+
+[tool.pylint.similarities]
+min-similarity-lines = 3
+
+[tool.pylint.string]
+check-quote-consistency = true
+
+[tool.pylint.variables]
+callbacks = ['cb', '_cb', 'callback', '_callback']
+
+[tool.pylint.master]
+init-hook = 'import sys; sys.path.append("src/Spotify2AntennaPodDB")'
